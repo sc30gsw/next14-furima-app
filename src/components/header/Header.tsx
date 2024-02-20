@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { CategoryList } from '@/components/CategoryList'
 import { HeaderContent } from '@/components/header/HeaderContent'
 import { Navbar } from '@/components/header/Navbar'
 import { SearchForm } from '@/components/header/SearchForm'
@@ -8,8 +9,8 @@ import { tv } from 'tailwind-variants'
 const headerStyles = tv(
   {
     slots: {
-      base: 'flex-col min-h-dvh',
-      pageHeader: 'sticky top-0 w-full min-h-8 border-b border-slate-500',
+      base: 'flex-col sticky top-0 bg-white z-20',
+      pageHeader: 'w-full min-h-8 pb-2 border-b border-slate-200',
       wrapper: 'justify-between',
       contents: '',
       img: 'object-cover',
@@ -80,6 +81,7 @@ export const Header = () => {
           </div>
         </div>
       </header>
+      <CategoryList />
     </div>
   )
 }
