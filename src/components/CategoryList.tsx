@@ -14,34 +14,27 @@ const categories = [
 
 const categoryListStyles = tv(
   {
-    slots: {
-      base: 'sticky z-10',
-      categoryList:
-        'box-border justify-center w-full max-w-7xl h-11 overflow-scroll hidden-scrollbar border-b-0 border-t border-solid border-t-transparent px-9 py-0 mx-auto my-0',
-    },
+    base: 'box-border justify-center w-full max-w-7xl h-11 overflow-scroll hidden-scrollbar border-b-0 border-t border-solid border-t-transparent px-9 py-0 mx-auto mt-5 mb-0',
     variants: {
       hidden: {
-        true: { categoryList: 'hidden' },
-        false: { categoryList: 'flex' },
+        true: 'hidden',
+        false: 'flex',
       },
     },
   },
-  { responsiveVariants: ['sm'] },
+  { responsiveVariants: ['md'] },
 )
 
 export const CategoryList = () => {
-  const { base, categoryList } = categoryListStyles({
-    hidden: { initial: true, sm: false },
-  })
-
   return (
-    <div className={base()}>
-      <ul className={categoryList()}>
-        {categories.map((category) => (
-          <Category key={category.label} category={category} />
-        ))}
-      </ul>
-      <hr className="block m-0 p-0 w-full" />
-    </div>
+    <ul
+      className={categoryListStyles({
+        hidden: { initial: true, md: false },
+      })}
+    >
+      {categories.map((category) => (
+        <Category key={category.label} category={category} />
+      ))}
+    </ul>
   )
 }

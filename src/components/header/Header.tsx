@@ -4,6 +4,7 @@ import { CategoryList } from '@/components/CategoryList'
 import { HeaderContent } from '@/components/header/HeaderContent'
 import { Navbar } from '@/components/header/Navbar'
 import { SearchForm } from '@/components/header/SearchForm'
+import { FC } from 'react'
 import { tv } from 'tailwind-variants'
 
 const headerStyles = tv(
@@ -53,7 +54,9 @@ const headerStyles = tv(
   { responsiveVariants: ['lg'] },
 )
 
-export const Header = () => {
+type HeaderProps = Readonly<{ isAuth?: boolean }>
+
+export const Header: FC<HeaderProps> = ({ isAuth }) => {
   const { base, pageHeader, wrapper, contents, img, navbarWrapper } =
     headerStyles({
       display: { initial: 'col', lg: 'row' },
@@ -75,13 +78,17 @@ export const Header = () => {
               />
             </HeaderContent>
           </div>
-          <SearchForm hidden={{ initial: true, lg: false }} />
-          <div className={navbarWrapper()}>
-            <Navbar />
-          </div>
+          {isAuth || (
+            <>
+              <SearchForm hidden={{ initial: true, lg: false }} />
+              <div className={navbarWrapper()}>
+                <Navbar />
+              </div>
+            </>
+          )}
         </div>
+        {isAuth || <CategoryList />}
       </header>
-      <CategoryList />
     </div>
   )
 }

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@hookform/resolvers':
+    specifier: ^3.3.4
+    version: 3.3.4(react-hook-form@7.50.1)
   next:
     specifier: 14.1.0
     version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -17,6 +20,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
+  react-hook-form:
+    specifier: ^7.50.1
+    version: 7.50.1(react@18.2.0)
   react-icons:
     specifier: ^5.0.1
     version: 5.0.1(react@18.2.0)
@@ -29,9 +35,15 @@ dependencies:
   uuid:
     specifier: ^9.0.1
     version: 9.0.1
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
   zustand:
     specifier: ^4.5.1
     version: 4.5.1(@types/react@18.2.56)(react@18.2.0)
+  zxcvbn:
+    specifier: ^4.4.2
+    version: 4.4.2
 
 devDependencies:
   '@biomejs/biome':
@@ -49,6 +61,9 @@ devDependencies:
   '@types/uuid':
     specifier: ^9.0.8
     version: 9.0.8
+  '@types/zxcvbn':
+    specifier: ^4.4.4
+    version: 4.4.4
   autoprefixer:
     specifier: ^10.0.1
     version: 10.4.17(postcss@8.4.35)
@@ -170,6 +185,14 @@ packages:
       tslib: 2.6.2
     dev: false
     optional: true
+
+  /@hookform/resolvers@3.3.4(react-hook-form@7.50.1):
+    resolution: {integrity: sha512-o5cgpGOuJYrd+iMKvkttOclgwRW86EsWJZZRC23prf0uU2i48Htq4PuT73AVb9ionFyZrwYEITuOFGF+BydEtQ==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.50.1(react@18.2.0)
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.2:
     resolution: {integrity: sha512-itHBs1rPmsmGF9p4qRe++CzCgd+kFYktnsoR1sbIAfsRMrJZau0Tt1AH9KVnufc2/tU02Gf6Ibujx+15qRE03w==}
@@ -537,6 +560,10 @@ packages:
 
   /@types/uuid@9.0.8:
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
+    dev: true
+
+  /@types/zxcvbn@4.4.4:
+    resolution: {integrity: sha512-Tuk4q7q0DnpzyJDI4aMeghGuFu2iS1QAdKpabn8JfbtfGmVDUgvZv1I7mEjP61Bvnp3ljKCC8BE6YYSTNxmvRQ==}
     dev: true
 
   /ansi-regex@5.0.1:
@@ -1091,6 +1118,15 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-hook-form@7.50.1(react@18.2.0):
+    resolution: {integrity: sha512-3PCY82oE0WgeOgUtIr3nYNNtNvqtJ7BZjsbxh6TnYNbXButaD5WpjOmTjdxZfheuHKR68qfeFnEDVYoSSFPMTQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-icons@5.0.1(react@18.2.0):
     resolution: {integrity: sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==}
     peerDependencies:
@@ -1411,6 +1447,10 @@ packages:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
 
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false
+
   /zustand@4.5.1(@types/react@18.2.56)(react@18.2.0):
     resolution: {integrity: sha512-XlauQmH64xXSC1qGYNv00ODaQ3B+tNPoy22jv2diYiP4eoDKr9LA+Bh5Bc3gplTrFdb6JVI+N4kc1DZ/tbtfPg==}
     engines: {node: '>=12.7.0'}
@@ -1429,4 +1469,8 @@ packages:
       '@types/react': 18.2.56
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
+  /zxcvbn@4.4.2:
+    resolution: {integrity: sha512-Bq0B+ixT/DMyG8kgX2xWcI5jUvCwqrMxSFam7m0lAf78nf04hv6lNCsyLYdyYTrCVMqNDY/206K7eExYCeSyUQ==}
     dev: false

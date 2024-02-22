@@ -6,8 +6,8 @@ import { HeaderButton } from '@/components/header/HeaderButton'
 import { SearchForm } from '@/components/header/SearchForm'
 import { useSearchOpen } from '@/hooks/useSearchOpen'
 import Link from 'next/link'
-import { FaSearch } from 'react-icons/fa'
-import { FaCheck } from 'react-icons/fa'
+import { usePathname } from 'next/navigation'
+import { FaCheck, FaSearch } from 'react-icons/fa'
 import { IoMdClose } from 'react-icons/io'
 import { tv } from 'tailwind-variants'
 
@@ -44,6 +44,8 @@ export const HeaderContent: FC<HeaderContentProps> = ({ children }) => {
     isOpen,
   })
 
+  const pathname = usePathname()
+
   return (
     <>
       {isOpen ? (
@@ -58,17 +60,19 @@ export const HeaderContent: FC<HeaderContentProps> = ({ children }) => {
           <div className={logo()}>
             <Link href="/">{children}</Link>
           </div>
-          <div className={contents({ hidden: { initial: false, lg: true } })}>
-            <HeaderButton
-              label="検索"
-              icon={<FaSearch className={icon()} size={24} />}
-              onClick={onOpen}
-            />
-            <HeaderButton
-              label="やることリスト"
-              icon={<FaCheck className={icon()} size={24} />}
-            />
-          </div>
+          {pathname.includes('auth') || (
+            <div className={contents({ hidden: { initial: false, lg: true } })}>
+              <HeaderButton
+                label="検索"
+                icon={<FaSearch className={icon()} size={24} />}
+                onClick={onOpen}
+              />
+              <HeaderButton
+                label="やることリスト"
+                icon={<FaCheck className={icon()} size={24} />}
+              />
+            </div>
+          )}
         </>
       )}
     </>

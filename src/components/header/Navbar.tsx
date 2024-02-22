@@ -94,12 +94,12 @@ export const Navbar = () => {
         </li>
         <li className={authList()}>
           <div>
-            <Link href="/" className={link()}>
+            <Link href="/auth/sign-in" className={link()}>
               ログイン
             </Link>
           </div>
           <div>
-            <Link href="/" className={link()}>
+            <Link href="/auth/sign-up" className={link()}>
               新規登録
             </Link>
           </div>
