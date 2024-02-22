@@ -3,8 +3,7 @@
 import { FC, useState } from 'react'
 
 import Link from 'next/link'
-import { IoIosArrowDown } from 'react-icons/io'
-import { IoIosArrowUp } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import { tv } from 'tailwind-variants'
 
 const footerSectionsStyles = tv(
@@ -69,7 +68,7 @@ export const FooterSection: FC<FooterSectionProps> = ({ label, links }) => {
       </button>
       <ul className={list()}>
         {links.map((linkLabel) => (
-          <li className={link()}>
+          <li key={linkLabel} className={link()}>
             <Link href="#">{linkLabel}</Link>
           </li>
         ))}
