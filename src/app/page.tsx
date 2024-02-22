@@ -56,8 +56,7 @@ const products = [
 const homeStyles = tv(
   {
     slots: {
-      base: 'min-h-dvh',
-      container: 'max-w-7xl my-0 mx-auto px-9 pt-10 pb-16',
+      base: 'max-w-7xl my-0 mx-auto px-9 pt-10 pb-16',
       headingWrapper:
         'flex items-end gap-4 mb-4 text-left text-xl font-bold text-gray-400',
       minorHeadingWrapper: 'p-0',
@@ -65,7 +64,7 @@ const homeStyles = tv(
       contents: 'grid',
     },
     compoundSlots: [
-      { slots: ['container', 'minorHeadingWrapper'], class: 'w-full' },
+      { slots: ['base', 'minorHeadingWrapper'], class: 'w-full' },
     ],
     variants: {
       grid: {
@@ -89,38 +88,30 @@ type HomeProps = Readonly<{
 }>
 
 const Home: FC<HomeProps> = async ({ searchParams }) => {
-  const {
-    base,
-    container,
-    headingWrapper,
-    minorHeadingWrapper,
-    heading,
-    contents,
-  } = homeStyles({ grid: { initial: 'default', md: 'md', sm: 'sm' } })
+  const { base, headingWrapper, minorHeadingWrapper, heading, contents } =
+    homeStyles({ grid: { initial: 'default', md: 'md', sm: 'sm' } })
 
   return (
-    <div className={base()}>
-      <main className={container()}>
-        <div>
-          <section>
-            <div className={headingWrapper()}>
-              <div className={minorHeadingWrapper()}>
-                <h2 className={heading()}>商品一覧</h2>
-              </div>
+    <main className={base()}>
+      <div>
+        <section>
+          <div className={headingWrapper()}>
+            <div className={minorHeadingWrapper()}>
+              <h2 className={heading()}>商品一覧</h2>
             </div>
-            <section>
-              <div>
-                <ul className={contents()}>
-                  {products.map((product) => (
-                    <Product key={product.id} product={product} />
-                  ))}
-                </ul>
-              </div>
-            </section>
+          </div>
+          <section>
+            <div>
+              <ul className={contents()}>
+                {products.map((product) => (
+                  <Product key={product.id} product={product} />
+                ))}
+              </ul>
+            </div>
           </section>
-        </div>
-      </main>
-    </div>
+        </section>
+      </div>
+    </main>
   )
 }
 
