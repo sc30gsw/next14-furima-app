@@ -1,5 +1,6 @@
 import { FC } from 'react'
 
+import { OtherAuthButton } from '@/components/auth/OtherAuthButton'
 import { SignUpForm } from '@/components/auth/SignUpForm'
 import { tv } from 'tailwind-variants'
 
@@ -34,6 +35,11 @@ const SignUpPage: FC<SignUpPageProps> = ({ searchParams }) => {
       <div className={formWrapper()}>
         <SignUpForm />
       </div>
+      <OtherAuthButton
+        label="アカウントをお持ちの方"
+        href="/auth/sign-in"
+        btnLabel="ログイン"
+      />
     </main>
   )
 }
