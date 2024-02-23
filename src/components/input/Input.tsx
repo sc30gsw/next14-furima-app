@@ -42,7 +42,7 @@ type InputProps<T extends FieldValues> = Readonly<{
   type: ComponentProps<'input'>['type']
   name: Path<T>
   control: Control<T>
-  value: string
+  value?: string
   error?: string
   label: string
   secondaryLabel?: string
