@@ -1,11 +1,17 @@
 'use client'
 
-import { ComponentProps, ReactElement, useState, useTransition } from 'react'
+import {
+  ComponentProps,
+  ReactElement,
+  useCallback,
+  useState,
+  useTransition,
+} from 'react'
 
 import { PasswordCheckList } from '@/components/auth/PasswordCheckList'
 import { VisibleSwitchButton } from '@/components/auth/VisibleSwitchButton'
+import { Combobox } from '@/components/input/Combobox'
 import { Input } from '@/components/input/Input'
-import { SelectBox } from '@/components/input/SelectBox'
 import { prefectures } from '@/constants/prefectures'
 import { useBirthDayFormat } from '@/hooks/useBirthDayFormat'
 import { STEPS, useStepping } from '@/hooks/useStepping'
@@ -121,6 +127,13 @@ export const SignUpForm = () => {
     reset()
   }
 
+  const customSetValue = useCallback(
+    (value: string) => {
+      setValue('prefecture', value)
+    },
+    [setValue],
+  )
+
   let bodyContent: ReactElement
 
   switch (step) {
@@ -214,16 +227,15 @@ export const SignUpForm = () => {
             placeholder="例）08012345678"
             disabled={false}
           />
-          <SelectBox
-            id="prefecture"
-            name="prefecture"
-            control={control}
+          <Combobox
+            placeholder="都道府県を検索"
             error={errors.prefecture?.message}
             label="お住まいの都道府県"
             secondaryLabel="発送元の地域の表示に使用します"
             selectBoxLabel="都道府県を選択してください"
             options={prefectures}
             disabled={false}
+            setValue={customSetValue}
           />
         </div>
       )
