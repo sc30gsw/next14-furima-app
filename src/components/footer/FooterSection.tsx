@@ -14,7 +14,7 @@ const footerSectionsStyles = tv(
       btn: 'justify-between items-center h-12 py-0 px-4 border-none cursor-pointer',
       btnLabel: 'mr-auto text-sm font-bold',
       list: 'my-4',
-      link: 'mt-2',
+      link: 'mt-2 hover:underline hover:text-zinc-500',
     },
     compoundSlots: [{ slots: ['base', 'btn'], class: 'w-full' }],
     variants: {
