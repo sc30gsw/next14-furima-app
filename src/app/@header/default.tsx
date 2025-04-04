@@ -1,5 +1,7 @@
+import { Header } from '@/components/header/Header'
+
 const Default = () => {
-  return null
+  return <Header />
 }
 
 export default Default

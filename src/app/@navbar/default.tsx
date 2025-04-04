@@ -1,5 +1,7 @@
+import Navbar from '@/app/@navbar/page'
+
 const Default = () => {
-  return null
+  return <Navbar />
 }
 
 export default Default

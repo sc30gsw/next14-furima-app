@@ -9,7 +9,7 @@ import { tv } from 'tailwind-variants'
 
 const categoryStyles = tv({
   slots: {
-    base: 'flex items-center h-cull px-4 border-b-[3px]',
+    base: 'flex items-center h-cull px-4 border-b-[3px] hover:bg-gray-200',
     link: 'w-full min-w-0 text-center whitespace-nowrap text-sm font-bold',
   },
   variants: {

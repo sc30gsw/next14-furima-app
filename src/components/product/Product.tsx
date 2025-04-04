@@ -65,7 +65,7 @@ export const Product: FC<ProductProps> = async ({ product }) => {
   return (
     <li className={base()}>
       <div>
-        <Link href={`/product${product.id}`} className={link()}>
+        <Link href={`/product/${product.id}`} className={link()}>
           <div className={thumbnailWrapper()}>
             <Image
               src={`/assets/${product.images[0]}`}

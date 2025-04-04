@@ -1,5 +1,7 @@
+import { Footer } from '@/components/footer/Footer'
+
 const Default = () => {
-  return null
+  return <Footer />
 }
 
 export default Default
